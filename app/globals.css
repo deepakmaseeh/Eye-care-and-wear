@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Background Layers - Light Theme */
+  --bg-primary: #F7F9FA;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F4F5;
+  --bg-hover: #ECEEEF;
+  --bg-active: #E2E5E7;
+
+  /* Brand Colors */
+  --brand-primary: #19B9C4;
+  --brand-primary-hover: #1FC8D4;
+  --brand-primary-active: #0FAAB5;
+  --brand-secondary: #F8C449;
+  --brand-secondary-hover: #FAD06A;
+  --brand-secondary-active: #EAB239;
+
+  /* Text Colors */
+  --text-primary: #1C1C1C;
+  --text-secondary: #4A4A4A;
+  --text-tertiary: #8A8A8A;
+  --text-inverse: #FFFFFF;
+
+  /* Semantic Colors */
+  --success: #4CAF50;
+  --success-bg: rgba(76, 175, 80, 0.15);
+  --warning: #FFA726;
+  --warning-bg: rgba(255, 167, 38, 0.15);
+  --error: #EF5350;
+  --error-bg: rgba(239, 83, 80, 0.15);
+  --info: #42A5F5;
+  --info-bg: rgba(66, 165, 245, 0.15);
+
+  /* Borders */
+  --border-primary: rgba(0, 0, 0, 0.12);
+  --border-secondary: rgba(0, 0, 0, 0.06);
+  --border-hover: rgba(0, 0, 0, 0.20);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+  /* Spacing (8px base unit) */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+
+  /* Border Radius */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-2xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark {
+  /* Background Layers - Dark Theme */
+  --bg-primary: #0F1419;
+  --bg-secondary: #1A1F2E;
+  --bg-tertiary: #252B3D;
+  --bg-hover: #2D3447;
+  --bg-active: #353B4F;
+
+  /* Brand Colors (slightly adjusted for dark theme) */
+  --brand-primary: #1FC8D4;
+  --brand-primary-hover: #25D4E0;
+  --brand-primary-active: #19B9C4;
+  --brand-secondary: #FAD06A;
+  --brand-secondary-hover: #FCD88A;
+  --brand-secondary-active: #F8C449;
+
+  /* Text Colors - Dark Theme */
+  --text-primary: #E8E8E8;
+  --text-secondary: #B4B4B4;
+  --text-tertiary: #8A8A8A;
+  --text-inverse: #1C1C1C;
+
+  /* Semantic Colors (lighter for dark theme) */
+  --success: #66BB6A;
+  --success-bg: rgba(102, 187, 106, 0.15);
+  --warning: #FFB74D;
+  --warning-bg: rgba(255, 183, 77, 0.15);
+  --error: #EF5350;
+  --error-bg: rgba(239, 83, 80, 0.15);
+  --info: #64B5F6;
+  --info-bg: rgba(100, 181, 246, 0.15);
+
+  /* Borders - Dark Theme */
+  --border-primary: rgba(255, 255, 255, 0.12);
+  --border-secondary: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.20);
+
+  /* Shadows - Dark Theme */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-hover);
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+@layer utilities {
+  .container-custom {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-custom {
+      padding: 0 2rem;
+    }
+  }
+}
+

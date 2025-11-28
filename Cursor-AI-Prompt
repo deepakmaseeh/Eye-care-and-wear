@@ -1,0 +1,1295 @@
+# COMPREHENSIVE CURSOR AI PROMPT FOR EYEWEAR WEB APPLICATION DEVELOPMENT
+## Complete Implementation Guide for Building India-Optimized Eyewear E-Commerce Platform
+
+---
+
+## PROJECT OVERVIEW
+
+You are an expert full-stack web application developer tasked with building a premium eyewear e-commerce platform optimized for the Indian market. The application must feature a sophisticated dark theme design, advanced virtual try-on technology, AI-powered recommendations, and comprehensive eye health resources.
+
+**Project Name**: EyeWear India - Premium Eyewear E-Commerce Platform
+**Target Market**: India (Primary focus: Delhi, Mumbai, Bangalore, Hyderabad, Chennai, Pune)
+**Technology Stack**: Next.js 14+, React 18+, TypeScript, Tailwind CSS, MongoDB/PostgreSQL, Node.js
+**Development Timeline**: 12-16 weeks across 5 phases
+**User Base Target**: 5M+ customers, 2000+ frame styles
+
+---
+
+## PART 1: DESIGN SYSTEM & DARK THEME SPECIFICATIONS
+
+### Color Palette - Dark Theme Optimized
+
+You must implement a carefully calibrated dark theme that reduces eye strain while maintaining premium aesthetics. Do NOT use pure black (#000000) or pure white (#FFFFFF) as these create excessive contrast and eye fatigue.
+
+**Primary Background Colors:**
+- Main Background: #121212 (Material Design standard for dark mode)
+- Secondary Background (Cards, elevated surfaces): #1E1E1E
+- Tertiary Background (Buttons, interactive elements): #2A2A2A
+- Hover State: #353535
+- Active/Pressed State: #404040
+
+**Brand Accent Colors (Desaturated for Dark Mode):**
+- Primary Brand Teal: #32B8C6 (calming, premium feel, represents vision/clarity)
+- Primary Teal Hover: #3DD5E3
+- Primary Teal Active: #28A5B1
+- Secondary Gold/Amber: #E8A55C (luxury, premium eyewear positioning)
+- Secondary Gold Hover: #F0B572
+- Secondary Gold Active: #D89447
+
+**Text Colors (Not Pure White):**
+- Primary Text: #E8E8E8 (off-white for reduced eye strain)
+- Secondary Text: #B4B4B4 (for labels, less important info)
+- Tertiary Text: #8A8A8A (disabled states, placeholders)
+- Text on Light Backgrounds: #1A1A1A (dark for contrast)
+
+**Semantic Colors (Slightly Desaturated):**
+- Success Green: #4CAF50 with background rgba(76, 175, 80, 0.15)
+- Warning Orange: #FFA726 with background rgba(255, 167, 38, 0.15)
+- Error Red: #EF5350 with background rgba(239, 83, 80, 0.15)
+- Info Blue: #42A5F5 with background rgba(66, 165, 245, 0.15)
+
+**Border & Divider Colors:**
+- Primary Border: rgba(232, 232, 232, 0.12)
+- Secondary Border: rgba(232, 232, 232, 0.08)
+- Hover Border: rgba(232, 232, 232, 0.20)
+
+**Frame Color Showcase (for product display):**
+- Tortoiseshell: #8B5A3C (popular classic shade)
+- Black: #1F1F1F (versatile)
+- Clear/Crystal: rgba(232, 232, 232, 0.25) (trendy transparent)
+- Gold: #D4AF37 (luxury)
+- Silver: #C0C0C0 (premium metal)
+- Blue: #4A90E2 (trending 2025)
+- Pink: #E06B9F (trending 2025)
+- Green: #6FAF6B (trending 2025)
+
+### Typography System
+
+Implement a responsive, hierarchical typography system that adapts across all devices:
+
+**Font Families:**
+- Primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+- Headings: 'Poppins', 'Inter', sans-serif
+- Monospace: 'Fira Code', 'Courier New', monospace
+
+**Font Sizes (Responsive using clamp):**
+- Extra Small: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem) → 12-14px
+- Small: clamp(0.875rem, 0.825rem + 0.25vw, 1rem) → 14-16px
+- Base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem) → 16-18px
+- Large: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem) → 18-20px
+- XL: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem) → 20-24px
+- 2XL: clamp(1.5rem, 1.35rem + 0.75vw, 2rem) → 24-32px
+- 3XL: clamp(2rem, 1.75rem + 1.25vw, 3rem) → 32-48px
+- 4XL: clamp(2.5rem, 2rem + 2.5vw, 4rem) → 40-64px
+
+**Font Weights:**
+- Light: 300
+- Normal: 400
+- Medium: 500
+- Semibold: 600
+- Bold: 700
+
+**Line Heights:**
+- Tight: 1.2 (for headings)
+- Snug: 1.375
+- Normal: 1.5 (body text)
+- Relaxed: 1.625
+- Loose: 2
+
+**Letter Spacing:**
+- Tight: -0.025em (headings)
+- Normal: 0
+- Wide: 0.025em
+- Wider: 0.05em
+
+### Spacing System
+
+Use 8px as the base unit for consistent spacing throughout:
+
+- 4px, 8px, 12px, 16px, 20px, 24px, 32px, 40px, 48px, 64px, 80px, 96px
+
+### Border Radius
+
+- Small: 4px (for small elements)
+- Medium: 8px (buttons, cards)
+- Large: 12px (larger cards)
+- XL: 16px (major containers)
+- 2XL: 24px (hero sections)
+- Full: 9999px (pills, avatars)
+
+### Animations & Transitions
+
+- Fast Duration: 150ms (quick interactions)
+- Normal Duration: 250ms (standard)
+- Slow Duration: 350ms (emphasis)
+- Slower Duration: 500ms (major transitions)
+- Easing: cubic-bezier(0.16, 1, 0.3, 1) for smooth, premium feel
+
+### Shadows (Dark Mode Optimized)
+
+- Small: 0 2px 4px rgba(0, 0, 0, 0.3)
+- Medium: 0 4px 8px rgba(0, 0, 0, 0.4)
+- Large: 0 8px 16px rgba(0, 0, 0, 0.5)
+
+---
+
+## PART 2: COMPONENT SPECIFICATIONS
+
+### Button Variants
+
+**Primary Button (Main CTA):**
+- Background: #32B8C6 (brand teal)
+- Text Color: #1A1A1A (dark for contrast)
+- Padding: 12px 24px
+- Font Weight: 600
+- Border Radius: 12px
+- Hover State: Background changes to #3DD5E3, slight lift effect (translateY -2px)
+- Active State: Background changes to #28A5B1, no lift
+- Focus State: Teal outline with 3px glow (rgba(50, 184, 198, 0.15))
+- Box Shadow: 0 2px 4px rgba(0, 0, 0, 0.3) on normal, 0 4px 8px on hover
+
+**Secondary Button (Alternative action):**
+- Background: Transparent
+- Border: 2px solid rgba(232, 232, 232, 0.12)
+- Text Color: #E8E8E8
+- Hover State: Border becomes #32B8C6, text becomes #32B8C6, slight background tint rgba(50, 184, 198, 0.08)
+- Focus State: Focus ring around button
+
+**Icon Button:**
+- Background: #2A2A2A
+- Padding: 12px
+- Border Radius: 8px
+- Hover State: Background becomes #353535
+- No text, only icons from Lucide React
+
+**Button Sizes:**
+- Small: 4px 12px padding, smaller font
+- Normal: 12px 24px padding
+- Large: 16px 32px padding, larger font
+- Full Width: 100% width
+
+### Card Components
+
+**Product Card:**
+- Background: #1E1E1E
+- Border: 1px solid rgba(232, 232, 232, 0.12)
+- Border Radius: 16px
+- Overflow: hidden
+- Hover Effect: Border becomes #32B8C6 with glow, card lifts (translateY -4px), shadow increases
+- Transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1)
+
+**Card Layout:**
+- Image section with aspect ratio 4:3
+- Wishlist button in top-right corner (heart icon)
+- Product name, price, discount badge inside card
+- Color swatches for frame colors
+- "Try Virtual" button at bottom
+- Product metadata (ratings, reviews count)
+
+**Image Hover Effect:**
+- Zoom in slightly (scale 1.05) on product card hover
+- Smooth transition over 350ms
+
+### Navigation Bar
+
+**Sticky Navigation:**
+- Background: #1E1E1E with backdrop blur (12px)
+- Border Bottom: 1px solid rgba(232, 232, 232, 0.12)
+- Height: 64px (plus menu bar)
+- Z-Index: 1020 (sticky layer)
+- Position: Sticky to top
+
+**Logo Section:**
+- Color: #32B8C6 (brand teal)
+- Font Size: 20px
+- Font Weight: 700
+- Display: Flex with 12px gap
+
+**Search Bar:**
+- Width: Flexible, max 600px
+- Background: #2A2A2A
+- Border: 1px solid rgba(232, 232, 232, 0.12)
+- Border Radius: 12px
+- Padding: 12px 16px
+- Focus State: Border becomes #32B8C6, background becomes #353535
+- Placeholder Color: #8A8A8A
+
+**Action Buttons:**
+- Cart Icon: Display item count badge (red circle with white number)
+- Wishlist Icon: Display count badge
+- User Avatar: Circular, 32px size
+- Hover Effects: Background changes to #2A2A2A
+
+**Navigation Menu (Secondary):**
+- Categories: Eyeglasses, Sunglasses, Computer Glasses, Face Shape Guide, Find Doctor, Deals
+- Horizontal scroll on mobile
+- Underline animation on hover
+- Active state: Underline persists with #32B8C6 color
+
+### Form Components
+
+**Text Input:**
+- Background: #2A2A2A
+- Border: 1px solid rgba(232, 232, 232, 0.12)
+- Border Radius: 12px
+- Padding: 16px
+- Color: #E8E8E8
+- Focus State: Border becomes #32B8C6, background becomes #353535, glow effect
+- Placeholder: #8A8A8A
+- Error State: Border becomes #EF5350, background tint red
+
+**Select Dropdown:**
+- Same styling as text input
+- Custom arrow icon (chevron down)
+- Background image: SVG arrow
+- Padding-right: Extra space for arrow
+
+**Checkbox:**
+- Width/Height: 20px
+- Border: 2px solid rgba(232, 232, 232, 0.12)
+- Border Radius: 4px
+- Checked State: Background #32B8C6, border #32B8C6, checkmark visible
+- Hover: Border becomes #32B8C6
+
+**Form Labels:**
+- Font Size: Small (14px)
+- Font Weight: 500
+- Color: #B4B4B4
+- Margin Bottom: 8px
+
+**Form Groups:**
+- Margin Bottom: 24px
+- Stack vertically
+
+### Modal & Overlay Components
+
+**Modal Overlay (Backdrop):**
+- Background: rgba(0, 0, 0, 0.7)
+- Backdrop Filter: blur(4px)
+- Position: Fixed, covers entire viewport
+- Z-Index: 1040 (modal backdrop layer)
+- Animation: Fade in 250ms ease-out
+
+**Modal Container:**
+- Background: #1E1E1E
+- Border: 1px solid rgba(232, 232, 232, 0.12)
+- Border Radius: 24px
+- Max Width: 600px
+- Max Height: 90vh
+- Display: Flex flex-direction column
+- Z-Index: 1050 (modal layer)
+- Animation: Slide up from bottom 250ms smooth easing
+- Box Shadow: 0 8px 16px rgba(0, 0, 0, 0.5)
+
+**Modal Header:**
+- Padding: 24px
+- Border Bottom: 1px solid rgba(232, 232, 232, 0.12)
+- Display: Flex justify-between align-center
+
+**Modal Close Button:**
+- Background: Transparent
+- Border: None
+- Font Size: 24px
+- Padding: 8px
+- Border Radius: 8px
+- Hover: Background #2A2A2A, color #E8E8E8
+
+**Modal Body:**
+- Padding: 24px
+- Overflow-y: Auto
+- Flex: 1
+
+**Modal Footer:**
+- Padding: 24px
+- Border Top: 1px solid rgba(232, 232, 232, 0.12)
+- Display: Flex gap 16px justify-end
+
+---
+
+## PART 3: PAGE ARCHITECTURE & LAYOUTS
+
+### Home Page Structure
+
+**Hero Section:**
+- Full viewport height (100vh)
+- Background: Gradient overlay (rgba(18, 18, 18, 0.95)) with background image
+- Content centered
+- Badge: "India's #1 Eyewear Platform 🇮🇳" with teal background tint
+- Main Heading: Large, bold, gradient text effect
+- Subheading: "2000+ Frames | Virtual Try-On | Free Home Delivery | Expert Guidance"
+- Two CTA Buttons: "Start Virtual Try-On" (primary) and "Browse Collection" (secondary)
+- Stats Section: Display 3 key metrics (5M+ Customers, 2000+ Frames, 4.8★ Rating)
+
+**Featured Categories Section:**
+- Grid layout: 3 columns (desktop), 2 (tablet), 1 (mobile)
+- Category cards with images and names
+- Categories: Eyeglasses, Sunglasses, Computer Glasses
+- Hover effect: Scale up, border color change to teal
+
+**Best Sellers Section:**
+- Horizontal scroll on mobile
+- 4-column grid on desktop
+- Product cards as specified
+- "Virtual Try-On" badge overlay
+- Load more button at bottom
+
+**Face Shape Guide CTA:**
+- Interactive banner
+- Headline: "Find Frames for Your Face Shape"
+- Description: "Discover which glasses suit your face shape best"
+- Button: "Take Face Shape Quiz"
+- Background: Gradient or relevant image
+
+**Trending Colors Section:**
+- Visual showcase of popular frame colors
+- Highlight: Tortoiseshell, Clear, Blue, Gold, Pink, Green
+- Each color with name and product count
+- Click to filter catalog
+
+**Eye Health Section:**
+- 3 informational cards:
+  1. "Blue Light Protection" - info about computer glasses
+  2. "UV Protection" - info about sunglasses
+  3. "Comfortable Fit" - info about frame selection
+- Icons from Lucide React
+- "Learn More" links to resources
+
+**Customer Testimonials:**
+- Carousel/slider of customer reviews
+- Show: Profile photo, name, city (from India), rating (5 stars), testimonial text
+- Auto-play with manual controls
+- Pause on hover
+
+**Trusted Brands:**
+- Horizontal scroll section
+- Brand logos: Ray-Ban, Lenskart, Titan Eye+, IDEE, Fastrack, etc.
+- Grayscale on normal, color on hover
+
+**Footer:**
+- Multiple columns: Company, Shop, Support, Legal, Social
+- Links organized by category
+- Newsletter signup
+- Payment methods display
+- Copyright notice
+
+### Product Catalog Page
+
+**Left Sidebar (Collapsible on Mobile):**
+- Filter Sections with checkboxes:
+  1. Gender (Men, Women, Unisex)
+  2. Frame Type (Full Rim, Semi-Rimless, Rimless)
+  3. Frame Material (Acetate, Titanium, Stainless Steel, TR90)
+  4. Frame Color (with color swatches)
+  5. Price Range (slider from 0-10000 rupees)
+  6. Brand (checkboxes)
+  7. Face Shape (Oval, Round, Square, Heart, Diamond)
+- "Reset Filters" button
+- Filter counts next to each option
+- Show active filter tags above product grid
+
+**Top Bar:**
+- Sort dropdown: Relevance, Price Low-High, Price High-Low, Newest, Most Popular, Highest Rated
+- View toggle: Grid (4/3/2/1 columns responsive) or List view
+- Results counter: "Showing X of Y products"
+- Filter drawer toggle for mobile
+
+**Product Grid:**
+- Responsive columns: 4 (desktop) → 3 (large tablet) → 2 (tablet) → 1 (mobile)
+- Gap: 24px
+- Product cards as specified in component section
+
+**Pagination:**
+- Bottom of page
+- Previous/Next buttons
+- Page numbers
+- Jump to page input
+
+**Empty State:**
+- If no products match filters, show friendly message
+- Suggest resetting filters
+- Display related suggestions
+
+### Product Detail Page
+
+**Left Column (Image Gallery):**
+- Main image display (responsive, full width)
+- Zoom functionality on hover
+- Thumbnails below (4-6 images)
+- Click thumbnail to switch main image
+- "Try Virtual" button overlay on main image
+
+**Right Column (Product Information):**
+- Brand name and rating (e.g., "★★★★☆ 4.5 (234 reviews)")
+- Product name (large, bold)
+- Description (2-3 paragraphs)
+- Price section:
+  - Current price in large bold teal
+  - Original price strikethrough
+  - Discount percentage in green
+- Offers badges:
+  - "💳 EMI starting from ₹833/month"
+  - "🚚 Free Home Delivery"
+  - "✓ 14 Days Return Policy"
+- Options:
+  - Frame Color selector (clickable color swatches)
+  - Lens Type dropdown (Single Vision, Bifocal, Progressive, Blue Light Blocking)
+  - Lens Coatings checkboxes (Anti-Reflective, Scratch Resistant, UV Protection) with prices
+- Action buttons:
+  - "Add to Cart - ₹XXXX" (large primary button)
+  - "Buy Now" (secondary button)
+  - Wishlist heart icon button
+- Specifications table:
+  - Frame Material, Width, Lens Width, Bridge Width, Temple Length, Weight, Suitable Face Shapes
+  - Two-column layout: Label and Value
+
+**Below Fold:**
+- Customer Reviews section with pagination
+- Related/Similar Products carousel
+- "You May Also Like" section with recommendations
+
+### Virtual Try-On Page
+
+**Camera Area (Left Column):**
+- Video feed from user's camera
+- Canvas overlay for frame rendering
+- Real-time face detection visualization
+- Camera controls: Switch camera button, Capture photo button, Share button
+- Capture quality indicator
+- Error message if camera access denied
+
+**Frame Selector Panel (Right Column):**
+- "Select Frame" heading
+- Frame thumbnail carousel (horizontal scroll)
+- Adjustment controls:
+  - Frame Size slider (0.8x to 1.2x)
+  - Position controls (up/down/left/right arrows)
+  - Reset button
+- "Add to Cart" button
+- "Save Photo" button
+- "Share on Social" button
+
+**Responsive Design:**
+- Mobile: Stack vertically (camera on top, controls below)
+- Tablet: Side by side with responsive sizing
+- Desktop: Full width layout
+
+### Face Shape Guide Page
+
+**Hero Section:**
+- Title: "Find Your Perfect Frame"
+- Subtitle: "Discover which glasses suit your face shape best"
+
+**Face Shape Cards Grid:**
+For each face shape (Oval, Round, Square, Heart, Diamond, Triangle):
+- Illustration/diagram of face shape
+- Face shape name
+- Description of characteristics
+- "Best Frames" list (bullet points)
+- Color illustration showing recommended frame shapes
+- "View Frames" button linking to catalog with face shape filter
+
+**Interactive Quiz Section:**
+- Title: "Take Our Face Shape Quiz"
+- Step-by-step progress indicator
+- Step 1: Upload photo or use camera
+- Step 2: Answer quick questions (5-7 yes/no questions about face proportions)
+- Step 3: Get results with recommended frames
+- Results display with:
+  - Detected face shape
+  - Accuracy percentage
+  - Recommended frame styles
+  - Direct link to filtered catalog
+
+### Doctor Finder Page
+
+**Search Section:**
+- City/Pincode input field
+- Specialty dropdown (Ophthalmologist, Optometrist, Optician)
+- "Search" button
+- Quick filter chips: "Available Today", "Online Consultation", "Top Rated", "Accepts Insurance"
+
+**Results Display:**
+- Left: Google Maps showing doctor locations
+- Right: List of doctor cards
+- Each doctor card showing:
+  - Avatar photo (circular, 80px)
+  - Doctor name (bold, large)
+  - Specialty credentials (MD, MS, OD)
+  - Years of experience
+  - Star rating with review count
+  - Location with pin icon
+  - Consultation fee in rupees
+  - "Book Appointment" primary button
+  - "View Profile" secondary button
+
+**Doctor Profile Modal:**
+- Full details
+- Clinic photos
+- Credentials and qualifications
+- Available time slots
+- Patient reviews with photos
+- Contact information
+- Booking form
+
+### Eye Health Resources Page
+
+**Hero Section:**
+- Title: "Eye Health & Care Guide"
+- Subtitle: "Expert advice for maintaining healthy vision"
+
+**Categories Grid:**
+Each category card showing:
+- Icon (from Lucide React)
+- Category title
+- List of subcategory links
+
+Categories:
+- Vision Problems (Myopia, Hyperopia, Astigmatism, Presbyopia)
+- Digital Eye Strain (Blue Light, Screen Time, Eye Exercises)
+- Eye Conditions (Dry Eyes, Cataracts, Glaucoma)
+- Eyewear Guide (Lens Types, Frames, Coatings)
+- Prevention (UV Protection, Regular Check-ups)
+
+**Articles Grid:**
+- Article thumbnail image
+- Category badge
+- Article title
+- Excerpt (2-3 lines)
+- "Read More" link
+- Publication date
+
+---
+
+## PART 4: ADVANCED FEATURES SPECIFICATIONS
+
+### Virtual Try-On Technology
+
+**Face Detection Algorithm:**
+- Use MediaPipe Face Mesh for real-time face landmark detection
+- Detect 468 facial landmarks for accurate positioning
+- Key detection points:
+  - Left eye outer corner (landmark 33)
+  - Right eye outer corner (landmark 263)
+  - Nose bridge (landmark 168)
+  - Calculate distance between eyes for frame width
+  - Calculate head rotation angle for frame tilt
+
+**Frame Overlay Rendering:**
+- Calculate glasses dimensions based on eye distance
+- Glasses width = 2.2x eye distance
+- Glasses height = 40% of width
+- Apply perspective transformation for head tilt
+- Support multiple frame styles (acetate, metal, semi-rimless)
+- Render frames with shadow for depth
+
+**User Adjustment Controls:**
+- Frame Size: 0.8x to 1.2x (step 0.05x)
+- Position X-Y: Arrows to move frame up/down/left/right
+- Rotation: Subtle rotation adjustment
+- Reset button to restore original position
+
+**Photo Capture & Sharing:**
+- Capture current frame as PNG image
+- Save to local storage and cloud
+- Share options: WhatsApp, Instagram, Facebook, Email
+- Download button for local save
+
+**Performance Optimization:**
+- Process every 2-3 frames (not every frame) to reduce CPU load
+- Use Web Workers for face detection
+- GPU acceleration with WebGL
+- Cache frame images
+- Lazy load MediaPipe models
+
+### Search & Filter System
+
+**Search Features:**
+- Real-time search as user types
+- Fuzzy matching for typos (max 2 edits allowed)
+- Search across: product name, description, brand, tags
+- Autocomplete suggestions based on popular searches
+- Search analytics to improve results
+
+**Advanced Filtering:**
+- Multiple filter categories work together (AND logic within category, OR between options)
+- Filter options:
+  1. Gender: Men, Women, Unisex
+  2. Frame Type: Full Rim, Semi-Rimless, Rimless
+  3. Material: Acetate, Titanium, Stainless Steel, TR90, Memory Metal
+  4. Color: Tortoiseshell, Black, Clear, Gold, Silver, Blue, Pink, Green
+  5. Face Shape: Oval, Round, Square, Heart, Diamond, Triangle
+  6. Price: Range slider ₹0-₹10,000
+  7. Brand: Lenskart, Titan Eye+, IDEE, Fastrack, Ray-Ban, etc.
+  8. Lens Features: Blue Light Blocking, Photochromic, Polarized, Anti-Reflective
+
+**Sorting Options:**
+- Relevance (default, based on search score)
+- Price: Low to High, High to Low
+- Newest First (by creation date)
+- Most Popular (by sales count)
+- Highest Rated (by average rating)
+
+**Filter Display:**
+- Show product count for each filter option
+- Display active filters as removable tags
+- "Clear All Filters" button
+- Save/bookmark frequent filter combinations (for logged-in users)
+
+**Mobile Optimization:**
+- Filters in a drawer/modal on mobile
+- Apply filters button after selection
+- Collapse filter sections to save space
+
+### Recommendation Engine
+
+**Types of Recommendations:**
+
+1. **Personalized Recommendations (Collaborative Filtering)**
+   - Analyze user's purchase history and browsing
+   - Find similar users with common interests
+   - Recommend products liked by similar users
+   - Weight recent actions more heavily
+
+2. **Similar Products (Content-Based)**
+   - Find products with matching attributes
+   - Consider: frame type, material, color, brand, face shape compatibility
+   - Score by number of matching attributes
+   - Prioritize by rating and sales
+
+3. **Face Shape Based**
+   - If user has taken face shape quiz, show frames specifically suited for their shape
+   - Filter catalog results by face shape compatibility
+   - Highlight "Recommended for [Face Shape]" label
+
+4. **Trending Products**
+   - Show popular products from last 7/30/90 days
+   - Calculate trending score from views, adds to cart, purchases
+   - Display "Trending" badge on trending products
+
+5. **Frequently Bought Together**
+   - If product A is often bought with product B
+   - Show "People Also Bought" section on product detail
+   - Cross-sell complementary items (e.g., lens coatings with frames)
+
+### Payment Integration (Razorpay)
+
+**Payment Flow:**
+1. User reviews cart and proceeds to checkout
+2. Enter shipping address and select payment method
+3. Display order summary with total
+4. Apply coupon code if available
+5. Click "Pay Now" to initiate Razorpay
+6. Razorpay modal opens with payment options
+7. User selects: Credit Card, Debit Card, Net Banking, UPI, Wallet, EMI
+8. Payment processed
+9. Razorpay redirects back with success/failure status
+10. Verify payment on backend
+11. Create order in database if verified
+12. Send confirmation email
+13. Show success page with order details
+
+**Security Features:**
+- PCI-DSS compliance (Razorpay handles)
+- SSL encryption for all payments
+- Verify payment signature on backend (non-negotiable)
+- Never store credit card details
+- Timeout old payment attempts
+- Fraud detection via Razorpay's built-in checks
+
+**EMI Options:**
+- Show EMI calculations: "Starting from ₹833/month"
+- 3, 6, 12 month options
+- Zero-interest EMI for orders above ₹5000
+- Display at checkout
+
+**Coupon Codes:**
+- Apply coupon during checkout
+- Show discount amount and percentage
+- Auto-calculate final total
+- Validate coupon: expiry date, usage limits, minimum order value
+- One coupon per order
+
+---
+
+## PART 5: DEVELOPMENT PHASES & PRIORITIES
+
+### Phase 1: Foundation & Setup (Weeks 1-2) - CRITICAL
+
+**Priority 1 - Must Have:**
+- Next.js 14+ project setup with TypeScript
+- Tailwind CSS configured with custom dark theme color palette
+- Git repository with branching strategy
+- Project folder structure: /app, /components, /lib, /public, /styles
+- Design tokens as CSS variables in globals.css
+- Storybook setup for component documentation
+- ESLint and Prettier configuration
+
+**Priority 2 - Essential:**
+- Core component library:
+  - Button (all variants: primary, secondary, icon, sizes)
+  - Form inputs (text, select, checkbox, radio)
+  - Card component (product, content variants)
+  - Modal/Dialog
+  - Navigation bar skeleton
+  - Toast notifications
+- Responsive grid system (12-column grid)
+- Breakpoint system: sm (640px), md (768px), lg (1024px), xl (1280px)
+
+**Priority 3 - Important:**
+- Lucide React icons integration
+- Shadow and animation utilities
+- Color palette testing in Storybook
+- Accessibility setup (WCAG guidelines)
+
+**Testing:**
+- Visual regression tests for components
+- Responsive design tests across breakpoints
+- Color contrast verification tool
+
+### Phase 2: Product Catalog & E-Commerce (Weeks 3-6) - CORE FUNCTIONALITY
+
+**Week 3: Database & Backend API**
+
+Priority 1 - Must Have:
+- Database schema design:
+  - Products collection: name, description, price, brand, images, frames (type, material, color), suitable_face_shapes, lens_types, features
+  - Users collection: email, password (hashed), profile, addresses, preferences
+  - Orders collection: order_id, user_id, items, total, status, shipping_address, payment_info
+  - Reviews collection: product_id, user_id, rating, title, content, images, helpful_count
+- Image storage: Cloudinary or AWS S3
+- Seed data: Minimum 500 eyewear products with varied attributes
+- CRUD API routes for products
+
+Priority 2 - Essential:
+- User authentication API (sign up, login, logout, JWT tokens)
+- Product filtering logic backend
+- Search implementation with full-text indexing
+- Database indexes for performance
+
+**Week 4: Home Page & Product Pages**
+
+Priority 1 - Must Have:
+- Home page as specified in Part 3 (all sections)
+- Product catalog page with grid layout
+- Product detail page with all information
+- Navigation bar fully functional
+- Footer with all sections
+
+Priority 2 - Essential:
+- Hero section animations
+- Category grid with hover effects
+- Best sellers carousel
+- Responsive design for all pages
+- Image optimization and lazy loading
+
+**Week 5: Search & Filtering**
+
+Priority 1 - Must Have:
+- Search functionality (debounced, real-time)
+- All filter types working (gender, material, color, face shape, price, brand)
+- Sort functionality (price, popularity, rating, newest)
+- Filter tags display and removal
+- Results counter and pagination
+
+Priority 2 - Essential:
+- Mobile filter drawer
+- Filter persistence in URL parameters
+- Loading states and skeletons
+- Empty state messaging
+- Autocomplete suggestions
+
+**Week 6: Shopping Cart & Wishlist**
+
+Priority 1 - Must Have:
+- Add/remove items from cart
+- Update quantities
+- Cart persistence (localStorage initially, backend after auth)
+- Wishlist add/remove
+- Cart drawer/sidebar preview
+- Cart page with full view
+
+Priority 2 - Essential:
+- Price calculations (subtotal, discounts, taxes if applicable)
+- Coupon code input field
+- Estimated delivery display
+- Continue shopping button
+- Proceed to checkout button
+
+### Phase 3: Advanced Features (Weeks 7-10) - DIFFERENTIATION
+
+**Week 7-8: Virtual Try-On**
+
+Priority 1 - Must Have:
+- Camera access permission handling
+- Face detection using MediaPipe
+- Real-time frame rendering on detected face
+- Frame selection carousel
+- Photo capture functionality
+- Frame size adjustment (slider)
+- Basic position adjustment (up/down/left/right)
+
+Priority 2 - Important:
+- Multiple camera support
+- Brightness/contrast adjustment
+- Share to WhatsApp/Instagram
+- Save photo to cloud
+- Frame preview images library
+
+Priority 3 - Nice to Have:
+- Video recording
+- Snapshot gallery
+- Comparison (before/after)
+- Face detection visualization toggle
+
+**Week 9: Face Shape Guide**
+
+Priority 1 - Must Have:
+- Face shape information pages (all 6 shapes)
+- Each page: description, characteristics, best frames
+- Face shape quiz (5-7 questions)
+- Quiz results with recommendations
+- Filter catalog by face shape
+- Illustrations/diagrams for each face shape
+
+Priority 2 - Important:
+- Photo upload for face detection (optional AI-based)
+- Quiz sharing
+- Save results for logged-in users
+- Recommended frames carousel per face shape
+
+**Week 10: Doctor Finder**
+
+Priority 1 - Must Have:
+- Google Maps integration
+- Search doctors by city/location
+- Specialty filtering
+- Doctor profile cards with basic info
+- Appointment booking modal
+- Consultation fee display
+
+Priority 2 - Important:
+- Available time slots display
+- Online consultation option
+- Doctor reviews and ratings
+- Insurance acceptance information
+- Call/WhatsApp contact buttons
+
+Priority 3 - Nice to Have:
+- Video consultation integration
+- Payment for consultations through app
+- Follow-up reminders
+
+### Phase 4: User Experience & Conversion (Weeks 11-14) - POLISH
+
+**Week 11: User Authentication**
+
+Priority 1 - Must Have:
+- Sign up page with validation
+- Login page
+- Social login (Google, Facebook)
+- Email verification flow
+- Password reset flow
+- User profile page
+- Edit profile functionality
+
+Priority 2 - Important:
+- Account security (password change)
+- Two-factor authentication (optional)
+- Login history
+- Session management
+
+**Week 12: Checkout & Payment**
+
+Priority 1 - Must Have:
+- Multi-step checkout: Cart → Address → Payment → Confirmation
+- Shipping address form with validation
+- Billing address option (same as shipping)
+- Razorpay payment gateway integration
+- Order summary display
+- Order confirmation page
+- Order email notification
+
+Priority 2 - Important:
+- Coupon/discount code application
+- Multiple payment methods display
+- Saved addresses from profile
+- Order tracking page
+- Invoice generation and download
+
+**Week 13: Eye Health Content**
+
+Priority 1 - Must Have:
+- Eye health resource page structure
+- Content categories with information
+- Article listing with pagination
+- Individual article pages with full content
+- Navigation between articles
+- SEO metadata for articles
+
+Priority 2 - Important:
+- Articles with images
+- Related articles recommendations
+- Share article buttons
+- Comments section (optional)
+
+**Week 14: SEO & Performance**
+
+Priority 1 - Must Have:
+- Meta tags for all pages
+- Open Graph tags (social sharing)
+- Schema.org structured data
+- Sitemap.xml generation
+- robots.txt
+- Google Analytics implementation
+- Performance optimization (images, lazy loading, code splitting)
+
+Priority 2 - Important:
+- Lighthouse score >90
+- Core Web Vitals optimization
+- Mobile page speed optimization
+- Canonical URLs
+
+### Phase 5: Testing & Deployment (Weeks 15-16) - RELIABILITY
+
+**Week 15: Quality Assurance**
+
+Priority 1 - Must Have:
+- Unit tests for critical functions (search, filtering, recommendations)
+- Component tests for UI components
+- E2E tests for user journeys (browse → select → add to cart → checkout)
+- Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- Mobile device testing (iOS, Android)
+- Accessibility audit (WCAG 2.1 AA)
+
+Priority 2 - Important:
+- Load testing (10K concurrent users)
+- Security audit
+- Performance profiling
+- Manual QA checklist
+
+**Week 16: Deployment & Launch**
+
+Priority 1 - Must Have:
+- Production environment setup (Vercel or similar)
+- CI/CD pipeline (GitHub Actions)
+- Environment variables configured
+- Database backups automated
+- Monitoring setup (Sentry for errors, Google Analytics for tracking)
+- Status page for monitoring
+- Soft launch with limited traffic
+
+Priority 2 - Important:
+- Production performance monitoring
+- Real-time error tracking
+- User behavior analytics
+- Database performance monitoring
+
+---
+
+## PART 6: TECHNICAL REQUIREMENTS & CONSTRAINTS
+
+### Technology Stack
+
+**Frontend:**
+- React 18+ (latest stable)
+- Next.js 14+ (App Router)
+- TypeScript (strict mode)
+- Tailwind CSS (with custom configuration)
+- Lucide React for icons
+- Framer Motion for animations (optional but recommended)
+
+**Backend:**
+- Node.js (latest LTS)
+- Next.js API routes
+- MongoDB or PostgreSQL
+- JWT for authentication
+- Bcryptjs for password hashing
+
+**Third-Party Services:**
+- Razorpay for payments
+- Google Maps API for doctor finder
+- Cloudinary or AWS S3 for images
+- MediaPipe for face detection (client-side)
+- TensorFlow.js for any ML features
+- Sentry for error tracking
+- Google Analytics 4 for analytics
+
+**DevOps:**
+- Git for version control
+- GitHub or GitLab for repository
+- Vercel or Netlify for deployment
+- GitHub Actions for CI/CD
+- Docker for containerization (optional)
+
+### Browser Support
+
+- Chrome (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions, both desktop and iOS)
+- Edge (latest 2 versions)
+- Mobile browsers (Chrome, Safari iOS)
+
+### Performance Targets
+
+- Lighthouse Score: >90
+- First Contentful Paint (FCP): <1.5 seconds
+- Largest Contentful Paint (LCP): <2.5 seconds
+- Cumulative Layout Shift (CLS): <0.1
+- Time to Interactive (TTI): <3.5 seconds
+- Mobile performance score: >85
+
+### Security Requirements
+
+- SSL/TLS encryption for all data in transit
+- HTTPS only (never HTTP)
+- CSRF protection on all forms
+- XSS prevention (sanitize user inputs)
+- SQL injection prevention (parameterized queries)
+- Rate limiting on API endpoints
+- Authentication on protected routes
+- Authorization checks on backend
+- Regular security audits
+- Password hashing with bcryptjs (minimum 10 rounds)
+- JWT token expiration (7 days)
+- Secure cookie settings (httpOnly, secure, sameSite)
+- No sensitive data in localStorage (use secure cookies)
+
+### Accessibility Requirements (WCAG 2.1 AA)
+
+- Keyboard navigation: All interactive elements reachable via Tab key
+- Focus indicators: Visible focus state on all interactive elements
+- Color contrast: 4.5:1 for normal text, 3:1 for large text
+- Alt text: All images must have descriptive alt text
+- ARIA labels: Form inputs, buttons, icons must have aria-label or aria-labelledby
+- Semantic HTML: Use proper semantic tags (button, nav, main, section, etc.)
+- Skip links: "Skip to main content" link
+- Error messages: Clear, accessible error messaging
+- Focus management: Modals trap focus appropriately
+
+---
+
+## PART 7: DATA STRUCTURE & API DESIGN
+
+### Key Collections/Tables
+
+**Products:**
+```
+{
+  id, name, description, brand, price, images[], 
+  frameType, material, color, suitableFaceShapes, 
+  lensTypes, features, coatings, rating, reviewCount, 
+  inStock, quantity, createdAt, updatedAt
+}
+```
+
+**Users:**
+```
+{
+  id, email, password, name, profile{}, 
+  addresses[], preferences, wishlist[], 
+  createdAt, updatedAt, lastLogin
+}
+```
+
+**Orders:**
+```
+{
+  id, userId, items[], subtotal, discount, tax, total, 
+  shippingAddress, billingAddress, paymentMethod, 
+  paymentStatus, orderStatus, tracking, createdAt
+}
+```
+
+**Reviews:**
+```
+{
+  id, productId, userId, rating, title, content, 
+  images[], helpful, notHelpful, createdAt
+}
+```
+
+### API Response Format
+
+All API responses should follow this format:
+```
+{
+  success: boolean,
+  data: any,
+  message: string,
+  error: string (if applicable),
+  timestamp: ISO string
+}
+```
+
+### Error Handling
+
+- All errors should return appropriate HTTP status codes (400, 401, 403, 404, 500, etc.)
+- Include descriptive error messages
+- Log errors server-side for debugging
+- Show user-friendly error messages on frontend
+- Implement retry logic for failed requests
+
+---
+
+## PART 8: CRITICAL QUALITY STANDARDS
+
+### Code Quality
+
+- TypeScript strict mode enabled
+- ESLint configuration with Next.js rules
+- Prettier code formatting
+- Pre-commit hooks (Husky) to check code quality
+- No console.log() statements in production code
+- Meaningful variable and function names
+- Comments for complex logic
+- Maximum function length: 100 lines
+- Avoid nested conditionals: max 3 levels
+
+### Component Quality
+
+- Single responsibility principle
+- Reusable components
+- Props validation
+- Proper TypeScript types
+- Responsive design (mobile-first approach)
+- Storybook stories for all components
+- Proper error boundaries
+
+### Performance Quality
+
+- Image optimization (Next.js Image component)
+- Code splitting and lazy loading
+- Minification of CSS/JS
+- Tree shaking for unused code
+- Caching strategy for API calls
+- Database query optimization
+- CDN usage for static assets
+- Avoid render-blocking resources
+
+### Testing Quality
+
+- Minimum 80% code coverage
+- Unit tests for utilities and hooks
+- Component tests for UI components
+- E2E tests for user journeys
+- Performance tests
+- Accessibility tests
+
+---
+
+## PART 9: IMPORTANT IMPLEMENTATION NOTES
+
+### Dark Mode Best Practices
+
+- Avoid pure black (#000000) and pure white (#FFFFFF)
+- Use gradients sparingly (only for hero sections or major CTAs)
+- Ensure sufficient contrast between elements
+- Use desaturated colors for less eye strain
+- Test colors under different lighting conditions
+- Provide light mode alternative (optional)
+
+### Indian Market Specific
+
+- All prices in INR (₹)
+- Razorpay for payments (primary choice in India)
+- Support for UPI, netbanking, card payments, wallets
+- Hindi language toggle (optional future phase)
+- Indian phone number format (+91)
+- Indian pin code format (6 digits)
+- Free delivery messaging (popular in India)
+- EMI options (popular for eyewear)
+- WhatsApp integration (high adoption in India)
+- Popular Indian eyewear brands prominently featured
+
+### Mobile First Design
+
+- Start with mobile layout (320px minimum)
+- Test on actual mobile devices
+- Touch-friendly buttons (min 44px size)
+- Avoid hover-only interactions
+- Optimize for slower internet connections
+- Minimize data usage (reduce image sizes)
+- Consider network conditions (offline support optional)
+
+### Image Optimization
+
+- Use Next.js Image component (automatic optimization)
+- Multiple image sizes for responsive design
+- WebP format with fallback
+- Lazy loading for off-screen images
+- Placeholder blur effect for better perceived performance
+- Compress images before upload (max 500KB per image)
+- Use CDN for fast delivery globally
+
+---
+
+## PART 10: TESTING & QA CHECKLIST
+
+Before launching, verify:
+
+**Functionality:**
+- ✅ All CRUD operations work (Create, Read, Update, Delete)
+- ✅ Search returns relevant results
+- ✅ Filters work correctly in combination
+- ✅ Cart calculations are accurate
+- ✅ Checkout flow completes without errors
+- ✅ Payment processing works (test mode)
+- ✅ Virtual try-on detects faces accurately
+- ✅ Face shape quiz provides correct results
+- ✅ Email notifications send correctly
+
+**Performance:**
+- ✅ Home page loads in <1.5 seconds
+- ✅ Product catalog loads <2 seconds
+- ✅ Search returns results in <500ms
+- ✅ Images load smoothly
+- ✅ No layout shifts during page load
+- ✅ Lighthouse score >90
+
+**Browser Compatibility:**
+- ✅ Chrome (desktop and mobile)
+- ✅ Firefox
+- ✅ Safari (Mac and iOS)
+- ✅ Edge
+- ✅ Samsung Internet
+
+**Accessibility:**
+- ✅ Keyboard navigation works
+- ✅ Screen reader compatible
+- ✅ Color contrast sufficient
+- ✅ Focus indicators visible
+- ✅ Error messages clear
+
+**Security:**
+- ✅ HTTPS working
+- ✅ Payment data encrypted
+- ✅ User passwords hashed
+- ✅ CSRF tokens in forms
+- ✅ No sensitive data in console
+- ✅ API rate limiting working
+
+**Mobile:**
+- ✅ Responsive on all screen sizes
+- ✅ Touch interactions work
+- ✅ Camera access permissions handled
+- ✅ Portrait and landscape modes work
+- ✅ Navigation accessible on small screens
+
+---
+
+## FINAL NOTES FOR CURSOR
+
+This comprehensive prompt provides all the critical information needed to build an exceptional eyewear e-commerce platform. Key priorities:
+
+1. **Design Excellence**: Dark theme with premium feel, not too dark for eye strain
+2. **User Experience**: Intuitive navigation, fast loading, mobile-first
+3. **Feature Completeness**: Virtual try-on must work smoothly, search/filter must be powerful
+4. **India Optimization**: Prices in rupees, Razorpay integration, Indian brands prominent
+5. **Performance**: Optimize images, lazy load, minimize JavaScript
+6. **Security**: Protect user data, validate inputs, secure payments
+7. **Accessibility**: WCAG compliance for inclusive design
+8. **Testing**: Comprehensive QA before launch
+
+Start with Phase 1 foundation, ensure core components are solid, then build features incrementally. Each phase should be fully completed before moving to next.
+
+Focus on quality over speed - it's better to launch a polished MVP than a feature-rich product with bugs.

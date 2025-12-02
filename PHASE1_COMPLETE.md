@@ -195,3 +195,5 @@ npm run format
 - Accessibility features included (WCAG 2.1 AA compliance)
 - Code follows ESLint and Prettier rules
 
+
+

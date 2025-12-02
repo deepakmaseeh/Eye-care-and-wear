@@ -90,19 +90,19 @@ export default function AdminSidebar({ collapsed }: { collapsed: boolean }) {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-full bg-[#2C3E50] text-white transition-all duration-300 z-50 ${
+      className={`fixed left-0 top-0 h-full bg-white border-r border-border-secondary text-text-primary transition-all duration-300 z-50 shadow-soft-md ${
         collapsed ? 'w-16' : 'w-64'
       }`}
     >
       <div className="flex flex-col h-full">
         {/* Logo */}
-        <div className="h-16 flex items-center justify-between px-4 border-b border-[#34495E]">
+        <div className="h-16 flex items-center justify-between px-4 border-b border-border-secondary bg-gradient-to-r from-brand-primary-light to-white">
           {!collapsed && (
-            <h1 className="text-xl font-bold text-white">EyeWear Admin</h1>
+            <h1 className="text-xl font-bold bg-gradient-to-r from-brand-primary to-brand-accent bg-clip-text text-transparent">EyeWear Admin</h1>
           )}
           <button
             onClick={() => {}}
-            className="p-2 hover:bg-[#34495E] rounded transition-colors"
+            className="p-2 hover:bg-bg-hover rounded-lg transition-colors text-text-primary"
             aria-label="Toggle sidebar"
           >
             {collapsed ? (
@@ -114,7 +114,7 @@ export default function AdminSidebar({ collapsed }: { collapsed: boolean }) {
         </div>
 
         {/* Menu Items */}
-        <nav className="flex-1 overflow-y-auto py-4">
+        <nav className="flex-1 overflow-y-auto py-4 bg-white">
           <ul className="space-y-1 px-2">
             {menuItems.map((item) => {
               const isActive = pathname === item.path || pathname.startsWith(item.path + '/')
@@ -123,10 +123,10 @@ export default function AdminSidebar({ collapsed }: { collapsed: boolean }) {
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                       isActive
-                        ? 'bg-[#1B6FA0] text-white'
-                        : 'text-[#B4B4B4] hover:bg-[#34495E] hover:text-white'
+                        ? 'bg-gradient-to-r from-brand-primary to-brand-primary-hover text-white shadow-brand'
+                        : 'text-text-secondary hover:bg-bg-hover hover:text-brand-primary'
                     }`}
                     title={collapsed ? item.title : ''}
                   >
@@ -143,8 +143,8 @@ export default function AdminSidebar({ collapsed }: { collapsed: boolean }) {
 
         {/* Footer */}
         {!collapsed && (
-          <div className="p-4 border-t border-[#34495E] text-sm text-[#B4B4B4]">
-            <p>EyeWear India</p>
+          <div className="p-4 border-t border-border-secondary text-sm text-text-tertiary bg-white">
+            <p className="font-semibold text-text-primary">EyeWear India</p>
             <p className="text-xs mt-1">Admin Control Center</p>
           </div>
         )}

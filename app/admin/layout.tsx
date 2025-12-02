@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import AdminSidebar from '@/components/admin/AdminSidebar'
 import AdminHeader from '@/components/admin/AdminHeader'
+import { Providers } from '@/components/Providers'
 
 export default function AdminLayout({
   children,
@@ -59,12 +60,12 @@ export default function AdminLayout({
 
   // Don't render layout on login page
   if (pathname === '/admin/login') {
-    return <>{children}</>
+    return <Providers>{children}</Providers>
   }
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#F5F7FA]">
+      <div className="flex items-center justify-center min-h-screen bg-white">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1B6FA0] mx-auto"></div>
           <p className="mt-4 text-[#6B7280]">Loading...</p>
@@ -78,17 +79,19 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA]">
-      <AdminSidebar collapsed={sidebarCollapsed} />
-      <div
-        className={`transition-all duration-300 ${
-          sidebarCollapsed ? 'ml-16' : 'ml-64'
-        }`}
-      >
-        <AdminHeader onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)} />
-        <main className="p-6">{children}</main>
+    <Providers>
+      <div className="min-h-screen bg-white">
+        <AdminSidebar collapsed={sidebarCollapsed} />
+        <div
+          className={`transition-all duration-300 ${
+            sidebarCollapsed ? 'ml-16' : 'ml-64'
+          }`}
+        >
+          <AdminHeader onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)} />
+          <main className="p-6">{children}</main>
+        </div>
       </div>
-    </div>
+    </Providers>
   )
 }
 

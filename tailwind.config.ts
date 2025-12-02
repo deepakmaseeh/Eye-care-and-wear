@@ -9,52 +9,63 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark Theme Background Colors
+        // Background Colors - Clean & Modern
         bg: {
-          primary: '#121212',
-          secondary: '#1E1E1E',
-          tertiary: '#2A2A2A',
-          hover: '#353535',
-          active: '#404040',
+          primary: '#FFFFFF',
+          secondary: '#FAFBFC',
+          tertiary: '#F8F9FA',
+          hover: '#F0F4F8',
+          active: '#E8EDF2',
         },
-        // Brand Accent Colors
+        // Brand Colors - Vibrant & Eye-Catching
         brand: {
-          primary: '#32B8C6',
-          'primary-hover': '#3DD5E3',
-          'primary-active': '#28A5B1',
-          secondary: '#E8A55C',
-          'secondary-hover': '#F0B572',
-          'secondary-active': '#D89447',
+          primary: '#0EA5E9', // Sky Blue
+          'primary-hover': '#0284C7',
+          'primary-active': '#0369A1',
+          'primary-light': '#E0F2FE',
+          secondary: '#F59E0B', // Amber
+          'secondary-hover': '#D97706',
+          'secondary-active': '#B45309',
+          'secondary-light': '#FEF3C7',
+          accent: '#8B5CF6', // Purple
+          'accent-hover': '#7C3AED',
+          'accent-light': '#EDE9FE',
         },
-        // Text Colors
+        // Text Colors - High Contrast
         text: {
-          primary: '#E8E8E8',
-          secondary: '#B4B4B4',
-          tertiary: '#8A8A8A',
-          inverse: '#1A1A1A',
+          primary: '#0F172A', // Slate 900
+          secondary: '#475569', // Slate 600
+          tertiary: '#94A3B8', // Slate 400
+          inverse: '#FFFFFF',
+          brand: '#0EA5E9',
         },
-        // Semantic Colors
+        // Semantic Colors - Vibrant & Clear
         success: {
-          DEFAULT: '#4CAF50',
-          bg: 'rgba(76, 175, 80, 0.15)',
+          DEFAULT: '#10B981', // Emerald
+          bg: 'rgba(16, 185, 129, 0.1)',
+          light: '#D1FAE5',
         },
         warning: {
-          DEFAULT: '#FFA726',
-          bg: 'rgba(255, 167, 38, 0.15)',
+          DEFAULT: '#F59E0B', // Amber
+          bg: 'rgba(245, 158, 11, 0.1)',
+          light: '#FEF3C7',
         },
         error: {
-          DEFAULT: '#EF5350',
-          bg: 'rgba(239, 83, 80, 0.15)',
+          DEFAULT: '#EF4444', // Red
+          bg: 'rgba(239, 68, 68, 0.1)',
+          light: '#FEE2E2',
         },
         info: {
-          DEFAULT: '#42A5F5',
-          bg: 'rgba(66, 165, 245, 0.15)',
+          DEFAULT: '#3B82F6', // Blue
+          bg: 'rgba(59, 130, 246, 0.1)',
+          light: '#DBEAFE',
         },
         // Border Colors
         border: {
-          primary: 'rgba(232, 232, 232, 0.12)',
-          secondary: 'rgba(232, 232, 232, 0.08)',
-          hover: 'rgba(232, 232, 232, 0.20)',
+          primary: 'rgba(15, 23, 42, 0.1)',
+          secondary: 'rgba(15, 23, 42, 0.06)',
+          hover: 'rgba(15, 23, 42, 0.15)',
+          brand: 'rgba(14, 165, 233, 0.3)',
         },
         // Frame Colors
         frame: {
@@ -91,9 +102,10 @@ const config: Config = {
         '4xl': '2rem',
       },
       boxShadow: {
-        'dark-sm': '0 2px 4px rgba(0, 0, 0, 0.3)',
-        'dark-md': '0 4px 8px rgba(0, 0, 0, 0.4)',
-        'dark-lg': '0 8px 16px rgba(0, 0, 0, 0.5)',
+        'soft-sm': '0 1px 2px 0 rgba(15, 23, 42, 0.05)',
+        'soft-md': '0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06)',
+        'soft-lg': '0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05)',
+        'brand': '0 4px 14px 0 rgba(14, 165, 233, 0.2)',
       },
       transitionDuration: {
         '250': '250ms',

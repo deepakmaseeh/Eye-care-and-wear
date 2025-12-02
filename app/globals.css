@@ -5,47 +5,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Background Layers - Light Theme */
-  --bg-primary: #F7F9FA;
-  --bg-secondary: #FFFFFF;
-  --bg-tertiary: #F1F4F5;
-  --bg-hover: #ECEEEF;
-  --bg-active: #E2E5E7;
+  /* Background Layers - Clean & Modern */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FAFBFC;
+  --bg-tertiary: #F8F9FA;
+  --bg-hover: #F0F4F8;
+  --bg-active: #E8EDF2;
+  --bg-gradient-start: #FFFFFF;
+  --bg-gradient-end: #F0F7FF;
 
-  /* Brand Colors */
-  --brand-primary: #19B9C4;
-  --brand-primary-hover: #1FC8D4;
-  --brand-primary-active: #0FAAB5;
-  --brand-secondary: #F8C449;
-  --brand-secondary-hover: #FAD06A;
-  --brand-secondary-active: #EAB239;
+  /* Brand Colors - Vibrant & Eye-Catching */
+  --brand-primary: #0EA5E9; /* Sky Blue - Modern & Trustworthy */
+  --brand-primary-hover: #0284C7; /* Deeper Sky Blue */
+  --brand-primary-active: #0369A1; /* Deep Sky Blue */
+  --brand-primary-light: #E0F2FE; /* Light Sky Blue */
+  --brand-secondary: #F59E0B; /* Amber - Warm & Inviting */
+  --brand-secondary-hover: #D97706; /* Deeper Amber */
+  --brand-secondary-active: #B45309; /* Deep Amber */
+  --brand-secondary-light: #FEF3C7; /* Light Amber */
+  --brand-accent: #8B5CF6; /* Purple - Premium & Modern */
+  --brand-accent-hover: #7C3AED;
+  --brand-accent-light: #EDE9FE;
 
-  /* Text Colors */
-  --text-primary: #1C1C1C;
-  --text-secondary: #4A4A4A;
-  --text-tertiary: #8A8A8A;
+  /* Text Colors - High Contrast & Readable */
+  --text-primary: #0F172A; /* Slate 900 - Strong contrast */
+  --text-secondary: #475569; /* Slate 600 - Medium contrast */
+  --text-tertiary: #94A3B8; /* Slate 400 - Subtle */
   --text-inverse: #FFFFFF;
+  --text-brand: #0EA5E9; /* Brand color for links */
 
-  /* Semantic Colors */
-  --success: #4CAF50;
-  --success-bg: rgba(76, 175, 80, 0.15);
-  --warning: #FFA726;
-  --warning-bg: rgba(255, 167, 38, 0.15);
-  --error: #EF5350;
-  --error-bg: rgba(239, 83, 80, 0.15);
-  --info: #42A5F5;
-  --info-bg: rgba(66, 165, 245, 0.15);
+  /* Semantic Colors - Vibrant & Clear */
+  --success: #10B981; /* Emerald Green - Fresh & Positive */
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --success-light: #D1FAE5;
+  --warning: #F59E0B; /* Amber - Attention-grabbing */
+  --warning-bg: rgba(245, 158, 11, 0.1);
+  --warning-light: #FEF3C7;
+  --error: #EF4444; /* Red - Clear & Urgent */
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --error-light: #FEE2E2;
+  --info: #3B82F6; /* Blue - Informative */
+  --info-bg: rgba(59, 130, 246, 0.1);
+  --info-light: #DBEAFE;
 
-  /* Borders */
-  --border-primary: rgba(0, 0, 0, 0.12);
-  --border-secondary: rgba(0, 0, 0, 0.06);
-  --border-hover: rgba(0, 0, 0, 0.20);
+  /* Borders - Subtle but Defined */
+  --border-primary: rgba(15, 23, 42, 0.1);
+  --border-secondary: rgba(15, 23, 42, 0.06);
+  --border-hover: rgba(15, 23, 42, 0.15);
+  --border-brand: rgba(14, 165, 233, 0.3);
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  /* Shadows - Modern & Layered */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+  --shadow-brand: 0 4px 14px 0 rgba(14, 165, 233, 0.2);
 
   /* Spacing (8px base unit) */
   --space-1: 0.25rem; /* 4px */
@@ -75,49 +89,6 @@
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark {
-  /* Background Layers - Dark Theme */
-  --bg-primary: #0F1419;
-  --bg-secondary: #1A1F2E;
-  --bg-tertiary: #252B3D;
-  --bg-hover: #2D3447;
-  --bg-active: #353B4F;
-
-  /* Brand Colors (slightly adjusted for dark theme) */
-  --brand-primary: #1FC8D4;
-  --brand-primary-hover: #25D4E0;
-  --brand-primary-active: #19B9C4;
-  --brand-secondary: #FAD06A;
-  --brand-secondary-hover: #FCD88A;
-  --brand-secondary-active: #F8C449;
-
-  /* Text Colors - Dark Theme */
-  --text-primary: #E8E8E8;
-  --text-secondary: #B4B4B4;
-  --text-tertiary: #8A8A8A;
-  --text-inverse: #1C1C1C;
-
-  /* Semantic Colors (lighter for dark theme) */
-  --success: #66BB6A;
-  --success-bg: rgba(102, 187, 106, 0.15);
-  --warning: #FFB74D;
-  --warning-bg: rgba(255, 183, 77, 0.15);
-  --error: #EF5350;
-  --error-bg: rgba(239, 83, 80, 0.15);
-  --info: #64B5F6;
-  --info-bg: rgba(100, 181, 246, 0.15);
-
-  /* Borders - Dark Theme */
-  --border-primary: rgba(255, 255, 255, 0.12);
-  --border-secondary: rgba(255, 255, 255, 0.06);
-  --border-hover: rgba(255, 255, 255, 0.20);
-
-  /* Shadows - Dark Theme */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
-}
 
 * {
   margin: 0;
@@ -140,23 +111,24 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Modern & Subtle */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: #F8F9FA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-tertiary);
+  background: #CBD5E1;
   border-radius: 4px;
+  transition: background 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--bg-hover);
+  background: #94A3B8;
 }
 
 /* Focus Styles */

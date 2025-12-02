@@ -62,7 +62,7 @@ export const Modal: React.FC<ModalProps> = ({
       onClick={onClose}
     >
       {/* Backdrop */}
-            <div className="absolute inset-0 bg-[rgba(0,0,0,0.55)] backdrop-blur-sm animate-in fade-in duration-250" />
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-in fade-in duration-250" />
 
       {/* Modal */}
       <div

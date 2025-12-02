@@ -13,8 +13,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="bg-bg-primary text-text-primary font-primary antialiased">
+    <html lang="en" className="light">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Force remove dark class and clear theme from localStorage
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                try {
+                  localStorage.removeItem('theme');
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-white text-text-primary font-primary antialiased" style={{ backgroundColor: '#FFFFFF' }}>
         <Providers>
           {children}
         </Providers>

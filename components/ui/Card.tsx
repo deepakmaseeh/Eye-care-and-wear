@@ -17,9 +17,9 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
       product: 'p-0 overflow-hidden',
     }
 
-          const hoverStyles = hover
-            ? 'hover:border-brand-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300'
-            : ''
+    const hoverStyles = hover
+      ? 'hover:border-brand-primary hover:shadow-dark-md hover:-translate-y-1'
+      : ''
 
     return (
       <div

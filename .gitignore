@@ -39,3 +39,9 @@ next-env.d.ts
 *.swp
 *.swo
 
+# Backend
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/.env.local
+

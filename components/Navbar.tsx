@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Search, ShoppingCart, Heart, User, Menu, X, Sun, Moon } from 'lucide-react'
+import { Search, ShoppingCart, Heart, User, Menu, X } from 'lucide-react'
 import { Button } from './ui/Button'
 import { cn } from '@/lib/utils'
 import { CartManager } from '@/lib/cart'
 import { WishlistManager } from '@/lib/wishlist'
 import { useAuth } from '@/lib/auth-context'
-import { useTheme } from '@/lib/theme-context'
 
 const UserMenu: React.FC = () => {
   const { user, logout, isAuthenticated } = useAuth()
@@ -76,7 +75,6 @@ export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [cartCount, setCartCount] = useState(0)
   const [wishlistCount, setWishlistCount] = useState(0)
-  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const updateCounts = () => {
@@ -166,20 +164,6 @@ export const Navbar: React.FC = () => {
                 </span>
               )}
             </Link>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-bg-tertiary transition-colors"
-              aria-label="Toggle theme"
-              type="button"
-            >
-              {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-text-primary" />
-              ) : (
-                <Sun className="w-5 h-5 text-text-primary" />
-              )}
-            </button>
 
             {/* User */}
             <UserMenu />

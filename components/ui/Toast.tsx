@@ -51,7 +51,7 @@ export const Toast: React.FC<ToastProps> = ({
   return (
     <div
       className={cn(
-        'flex items-center gap-3 p-4 rounded-xl border backdrop-blur-sm shadow-lg bg-bg-secondary',
+        'flex items-center gap-3 p-4 rounded-xl border backdrop-blur-sm shadow-dark-md',
         'animate-in slide-in-from-right-full duration-250',
         styles[type],
         !isVisible && 'animate-out slide-out-to-right-full'
@@ -64,7 +64,7 @@ export const Toast: React.FC<ToastProps> = ({
           setIsVisible(false)
           setTimeout(() => onClose(id), 250)
         }}
-        className="p-1 rounded hover:bg-bg-hover transition-colors"
+        className="p-1 rounded hover:bg-black/10 transition-colors"
         aria-label="Close toast"
       >
         <X className="w-4 h-4" />

@@ -68,36 +68,36 @@ export default function AdminDashboard() {
       title: 'Total Users',
       value: stats.totalUsers.toLocaleString(),
       icon: <Users className="w-6 h-6" />,
-      color: 'bg-[#1B6FA0]',
-      bgColor: 'bg-[#E0E7FF]',
+      color: 'bg-brand-primary',
+      bgColor: 'bg-brand-primary-light',
     },
     {
       title: 'Total Doctors',
       value: stats.totalDoctors.toLocaleString(),
       icon: <Stethoscope className="w-6 h-6" />,
-      color: 'bg-[#00A86B]',
-      bgColor: 'bg-[#DCFCE7]',
+      color: 'bg-success',
+      bgColor: 'bg-success-light',
     },
     {
       title: 'Orders (This Month)',
       value: stats.ordersThisMonth.toLocaleString(),
       icon: <ShoppingCart className="w-6 h-6" />,
-      color: 'bg-[#FF6B35]',
-      bgColor: 'bg-[#FEF3C7]',
+      color: 'bg-warning',
+      bgColor: 'bg-warning-light',
     },
     {
       title: 'Consultations (Today)',
       value: stats.consultationsToday.toLocaleString(),
       icon: <Calendar className="w-6 h-6" />,
-      color: 'bg-[#DC3545]',
-      bgColor: 'bg-[#FEE2E2]',
+      color: 'bg-error',
+      bgColor: 'bg-error-light',
     },
   ]
 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1B6FA0]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
       </div>
     )
   }
@@ -106,8 +106,8 @@ export default function AdminDashboard() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-3xl font-bold text-[#1F2937]">Dashboard</h1>
-        <p className="text-[#6B7280] mt-1">Welcome to EyeWear India Admin Control Center</p>
+        <h1 className="text-3xl font-bold text-text-primary">Dashboard</h1>
+        <p className="text-text-secondary mt-1">Welcome to EyeWear India Admin Control Center</p>
       </div>
 
       {/* Stats Cards */}
@@ -115,12 +115,12 @@ export default function AdminDashboard() {
         {statCards.map((card, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm"
+            className="bg-white rounded-lg border border-border-secondary p-6 shadow-soft-md hover:shadow-soft-lg transition-shadow"
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-[#6B7280] mb-1">{card.title}</p>
-                <p className="text-2xl font-bold text-[#1F2937]">{card.value}</p>
+                <p className="text-sm text-text-secondary mb-1">{card.title}</p>
+                <p className="text-2xl font-bold text-text-primary">{card.value}</p>
               </div>
               <div className={`${card.bgColor} p-3 rounded-lg`}>
                 <div className={card.color + ' text-white'}>{card.icon}</div>
@@ -133,14 +133,14 @@ export default function AdminDashboard() {
       {/* Revenue Card */}
       <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-[#1F2937]">Revenue This Month</h2>
-          <DollarSign className="w-5 h-5 text-[#00A86B]" />
+          <h2 className="text-xl font-semibold text-text-primary">Revenue This Month</h2>
+          <DollarSign className="w-5 h-5 text-success" />
         </div>
         <div className="flex items-baseline gap-2">
-          <p className="text-3xl font-bold text-[#1F2937]">
+          <p className="text-3xl font-bold text-text-primary">
             ₹{stats.revenueThisMonth.toLocaleString()}
           </p>
-          <div className="flex items-center gap-1 text-[#00A86B]">
+          <div className="flex items-center gap-1 text-success">
             <TrendingUp className="w-4 h-4" />
             <span className="text-sm font-medium">{stats.revenueGrowth}%</span>
           </div>
@@ -149,27 +149,27 @@ export default function AdminDashboard() {
 
       {/* Quick Actions */}
       <div className="bg-white rounded-lg border border-[#E5E7EB] p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-[#1F2937] mb-4">Quick Actions</h2>
+        <h2 className="text-xl font-semibold text-text-primary mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <button className="p-4 border border-[#E5E7EB] rounded-lg hover:bg-[#F5F7FA] transition-colors text-left">
-            <Package className="w-5 h-5 text-[#1B6FA0] mb-2" />
-            <p className="font-medium text-[#1F2937]">Add New Product</p>
-            <p className="text-sm text-[#6B7280] mt-1">Create a new product</p>
+          <button className="p-4 border border-border-secondary rounded-lg hover:bg-bg-hover hover:border-brand-primary transition-all text-left group">
+            <Package className="w-5 h-5 text-brand-primary mb-2 group-hover:scale-110 transition-transform" />
+            <p className="font-semibold text-text-primary">Add New Product</p>
+            <p className="text-sm text-text-secondary mt-1">Create a new product</p>
           </button>
-          <button className="p-4 border border-[#E5E7EB] rounded-lg hover:bg-[#F5F7FA] transition-colors text-left">
-            <Stethoscope className="w-5 h-5 text-[#1B6FA0] mb-2" />
-            <p className="font-medium text-[#1F2937]">Add New Doctor</p>
-            <p className="text-sm text-[#6B7280] mt-1">Onboard a doctor</p>
+          <button className="p-4 border border-border-secondary rounded-lg hover:bg-bg-hover hover:border-brand-primary transition-all text-left group">
+            <Stethoscope className="w-5 h-5 text-brand-primary mb-2 group-hover:scale-110 transition-transform" />
+            <p className="font-semibold text-text-primary">Add New Doctor</p>
+            <p className="text-sm text-text-secondary mt-1">Onboard a doctor</p>
           </button>
-          <button className="p-4 border border-[#E5E7EB] rounded-lg hover:bg-[#F5F7FA] transition-colors text-left">
-            <Activity className="w-5 h-5 text-[#1B6FA0] mb-2" />
-            <p className="font-medium text-[#1F2937]">Create Promotion</p>
-            <p className="text-sm text-[#6B7280] mt-1">Add a new coupon</p>
+          <button className="p-4 border border-border-secondary rounded-lg hover:bg-bg-hover hover:border-brand-primary transition-all text-left group">
+            <Activity className="w-5 h-5 text-brand-primary mb-2 group-hover:scale-110 transition-transform" />
+            <p className="font-semibold text-text-primary">Create Promotion</p>
+            <p className="text-sm text-text-secondary mt-1">Add a new coupon</p>
           </button>
-          <button className="p-4 border border-[#E5E7EB] rounded-lg hover:bg-[#F5F7FA] transition-colors text-left">
-            <BarChart3 className="w-5 h-5 text-[#1B6FA0] mb-2" />
-            <p className="font-medium text-[#1F2937]">View Analytics</p>
-            <p className="text-sm text-[#6B7280] mt-1">Export reports</p>
+          <button className="p-4 border border-border-secondary rounded-lg hover:bg-bg-hover hover:border-brand-primary transition-all text-left group">
+            <BarChart3 className="w-5 h-5 text-brand-primary mb-2 group-hover:scale-110 transition-transform" />
+            <p className="font-semibold text-text-primary">View Analytics</p>
+            <p className="text-sm text-text-secondary mt-1">Export reports</p>
           </button>
         </div>
       </div>
